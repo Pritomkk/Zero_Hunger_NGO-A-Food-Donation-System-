@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "NGOAdminDash";
+}
+
+<div class="header">
+    @if (TempData["Message1"] != null)
+    {
+        <h4 class="alert alert-info">@TempData["Message1"]</h4>
+    }
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>Welcome to Zero Hunger Ngo, Login as Admin @Session["Name"]</h2><hr />
+            <h4>Login as Admin @Session["Name"]</h4>
+        </div>
+    </div><hr /><br />
+
+    <div class="dashboard-container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Employee Registration to work for the NGO</h5>
+                        <a href="/NGOAdmin/NGOAdminAddEmployee" class="btn btn-primary">Employee Reg</a>
+                    </div>
+                </div>
+            </div><br />
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">View The Employee List</h5>
+                        <a href="/NGOAdmin/EmplyeeList" class="btn btn-primary">Employee List</a>
+                    </div>
+                </div>
+            </div>
+        </div><br />
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">View The Collected Food</h5>
+                        <a href="/NGOAdmin/ViewCollectedFood" class="btn btn-primary">View Collected Food</a>
+                    </div>
+                </div>
+            </div><br />
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pending Food they are Available to Donate</h5>
+                        <a href="/NGOAdmin/ViewPendingFood" class="btn btn-primary">View Pending Food</a>
+                    </div>
+                </div>
+            </div>
+        </div><br />
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">View The Donated Food</h5>
+                        <a href="/NGOAdmin/ViewDistriButedFood" class="btn btn-primary">View Donated Food</a>
+                    </div>
+                </div>
+            </div><br />
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">View The Donated Food that Donate By Employee</h5>
+                        <a href="/NGOAdmin/ViewDistributionFoodByEmploye" class="btn btn-primary">View Donated Food By Employee</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<div>
+    @Html.ActionLink("Logout", "Index", "Home", null, new { @class = "btn btn-danger" })
+</div>
+
+

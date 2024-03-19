@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZeroHungerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CollectRequest">
+    <Key>
+      <PropertyRef Name="CollectRequest_Id" />
+    </Key>
+    <Property Name="CollectRequest_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_Dscription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Expired_Time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RestruentDonorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RestruentDonor" Relationship="Self.FK_CollectRequest_RestruentDonor" FromRole="CollectRequest" ToRole="RestruentDonor" />
+    <NavigationProperty Name="CollectRequestEmployees" Relationship="Self.FK_CollectRequestEmployee_CollectRequest" FromRole="CollectRequest" ToRole="CollectRequestEmployee" />
+    <NavigationProperty Name="FoodDistributions" Relationship="Self.FK_FoodDistribution_CollectRequest" FromRole="CollectRequest" ToRole="FoodDistribution" />
+  </EntityType>
+  <EntityType Name="CollectRequestEmployee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CollectRequet_Id" Type="Int32" Nullable="false" />
+    <Property Name="EmpId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CollectRequest" Relationship="Self.FK_CollectRequestEmployee_CollectRequest" FromRole="CollectRequestEmployee" ToRole="CollectRequest" />
+    <NavigationProperty Name="Emplyee" Relationship="Self.FK_CollectRequestEmployee_Emplyee" FromRole="CollectRequestEmployee" ToRole="Emplyee" />
+  </EntityType>
+  <EntityType Name="Emplyee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NGOId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CollectRequestEmployees" Relationship="Self.FK_CollectRequestEmployee_Emplyee" FromRole="Emplyee" ToRole="CollectRequestEmployee" />
+    <NavigationProperty Name="NGOAdmin" Relationship="Self.FK_Emplyee_NGOAdmin" FromRole="Emplyee" ToRole="NGOAdmin" />
+    <NavigationProperty Name="FoodDistributionByEmployees" Relationship="Self.FK_FoodDistributionByEmployee_Emplyee" FromRole="Emplyee" ToRole="FoodDistributionByEmployee" />
+  </EntityType>
+  <EntityType Name="FoodDistribution">
+    <Key>
+      <PropertyRef Name="Distribution_Id" />
+    </Key>
+    <Property Name="Distribution_Id" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CollectRequest_Id" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CollectRequest" Relationship="Self.FK_FoodDistribution_CollectRequest" FromRole="FoodDistribution" ToRole="CollectRequest" />
+    <NavigationProperty Name="FoodDistributionByEmployees" Relationship="Self.FK_FoodDistributionByEmployee_FoodDistribution" FromRole="FoodDistribution" ToRole="FoodDistributionByEmployee" />
+  </EntityType>
+  <EntityType Name="FoodDistributionByEmployee">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Distribution_Id" Type="Int32" Nullable="false" />
+    <Property Name="EmpId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Emplyee" Relationship="Self.FK_FoodDistributionByEmployee_Emplyee" FromRole="FoodDistributionByEmployee" ToRole="Emplyee" />
+    <NavigationProperty Name="FoodDistribution" Relationship="Self.FK_FoodDistributionByEmployee_FoodDistribution" FromRole="FoodDistributionByEmployee" ToRole="FoodDistribution" />
+  </EntityType>
+  <EntityType Name="NGOAdmin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Emplyees" Relationship="Self.FK_Emplyee_NGOAdmin" FromRole="NGOAdmin" ToRole="Emplyee" />
+  </EntityType>
+  <EntityType Name="RestruentDonor">
+    <Key>
+      <PropertyRef Name="RestruentDonorId" />
+    </Key>
+    <Property Name="RestruentDonorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CollectRequests" Relationship="Self.FK_CollectRequest_RestruentDonor" FromRole="RestruentDonor" ToRole="CollectRequest" />
+  </EntityType>
+  <Association Name="FK_CollectRequest_RestruentDonor">
+    <End Role="RestruentDonor" Type="Self.RestruentDonor" Multiplicity="1" />
+    <End Role="CollectRequest" Type="Self.CollectRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RestruentDonor">
+        <PropertyRef Name="RestruentDonorId" />
+      </Principal>
+      <Dependent Role="CollectRequest">
+        <PropertyRef Name="RestruentDonorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CollectRequestEmployee_CollectRequest">
+    <End Role="CollectRequest" Type="Self.CollectRequest" Multiplicity="1" />
+    <End Role="CollectRequestEmployee" Type="Self.CollectRequestEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CollectRequest">
+        <PropertyRef Name="CollectRequest_Id" />
+      </Principal>
+      <Dependent Role="CollectRequestEmployee">
+        <PropertyRef Name="CollectRequet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FoodDistribution_CollectRequest">
+    <End Role="CollectRequest" Type="Self.CollectRequest" Multiplicity="1" />
+    <End Role="FoodDistribution" Type="Self.FoodDistribution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CollectRequest">
+        <PropertyRef Name="CollectRequest_Id" />
+      </Principal>
+      <Dependent Role="FoodDistribution">
+        <PropertyRef Name="CollectRequest_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CollectRequestEmployee_Emplyee">
+    <End Role="Emplyee" Type="Self.Emplyee" Multiplicity="1" />
+    <End Role="CollectRequestEmployee" Type="Self.CollectRequestEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emplyee">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="CollectRequestEmployee">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Emplyee_NGOAdmin">
+    <End Role="NGOAdmin" Type="Self.NGOAdmin" Multiplicity="1" />
+    <End Role="Emplyee" Type="Self.Emplyee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGOAdmin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Emplyee">
+        <PropertyRef Name="NGOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FoodDistributionByEmployee_Emplyee">
+    <End Role="Emplyee" Type="Self.Emplyee" Multiplicity="1" />
+    <End Role="FoodDistributionByEmployee" Type="Self.FoodDistributionByEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emplyee">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="FoodDistributionByEmployee">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FoodDistributionByEmployee_FoodDistribution">
+    <End Role="FoodDistribution" Type="Self.FoodDistribution" Multiplicity="1" />
+    <End Role="FoodDistributionByEmployee" Type="Self.FoodDistributionByEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodDistribution">
+        <PropertyRef Name="Distribution_Id" />
+      </Principal>
+      <Dependent Role="FoodDistributionByEmployee">
+        <PropertyRef Name="Distribution_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ZeroHungerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CollectRequests" EntityType="Self.CollectRequest" />
+    <EntitySet Name="CollectRequestEmployees" EntityType="Self.CollectRequestEmployee" />
+    <EntitySet Name="Emplyees" EntityType="Self.Emplyee" />
+    <EntitySet Name="FoodDistributions" EntityType="Self.FoodDistribution" />
+    <EntitySet Name="FoodDistributionByEmployees" EntityType="Self.FoodDistributionByEmployee" />
+    <EntitySet Name="NGOAdmins" EntityType="Self.NGOAdmin" />
+    <EntitySet Name="RestruentDonors" EntityType="Self.RestruentDonor" />
+    <AssociationSet Name="FK_CollectRequest_RestruentDonor" Association="Self.FK_CollectRequest_RestruentDonor">
+      <End Role="RestruentDonor" EntitySet="RestruentDonors" />
+      <End Role="CollectRequest" EntitySet="CollectRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CollectRequestEmployee_CollectRequest" Association="Self.FK_CollectRequestEmployee_CollectRequest">
+      <End Role="CollectRequest" EntitySet="CollectRequests" />
+      <End Role="CollectRequestEmployee" EntitySet="CollectRequestEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FoodDistribution_CollectRequest" Association="Self.FK_FoodDistribution_CollectRequest">
+      <End Role="CollectRequest" EntitySet="CollectRequests" />
+      <End Role="FoodDistribution" EntitySet="FoodDistributions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CollectRequestEmployee_Emplyee" Association="Self.FK_CollectRequestEmployee_Emplyee">
+      <End Role="Emplyee" EntitySet="Emplyees" />
+      <End Role="CollectRequestEmployee" EntitySet="CollectRequestEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Emplyee_NGOAdmin" Association="Self.FK_Emplyee_NGOAdmin">
+      <End Role="NGOAdmin" EntitySet="NGOAdmins" />
+      <End Role="Emplyee" EntitySet="Emplyees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FoodDistributionByEmployee_Emplyee" Association="Self.FK_FoodDistributionByEmployee_Emplyee">
+      <End Role="Emplyee" EntitySet="Emplyees" />
+      <End Role="FoodDistributionByEmployee" EntitySet="FoodDistributionByEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FoodDistributionByEmployee_FoodDistribution" Association="Self.FK_FoodDistributionByEmployee_FoodDistribution">
+      <End Role="FoodDistribution" EntitySet="FoodDistributions" />
+      <End Role="FoodDistributionByEmployee" EntitySet="FoodDistributionByEmployees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "EmployeeDash";
+}
+
+<center>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Welcome to Zero Hunger Ngo,</h2>
+                <h4>Login as Employee @Session["EmpName"]</h4>
+                <hr />
+            </div>
+        </div>
+        <hr />
+        <br />
+
+        <div class="dashboard-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-text">Collect food for Hungry People.</h4>
+                            <a href="/Employee/CollectFood" class="btn btn-primary">Collect Food</a>
+                        </div>
+                    </div><br />
+                </div><br />
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>View the Collected Food</h5>
+                            <a href="/Employee/CollectedFoodByEmp" class="btn btn-primary">View Collected Food</a><br />
+                        </div>
+                    </div><br />
+                </div><br />
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Donate food</h5>
+                            <a href="/Employee/DistributeCollectedFood" class="btn btn-primary">Donate</a>
+                        </div>
+                    </div>
+                </div><br />
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>If you Donate Food then Marks As complete</h5>
+                            <a href="/Employee/ViewDonateFood" class="btn btn-primary">Complete</a><br />
+                        </div>
+                    </div>
+                </div><br />
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>View Total Completed Tasks That Were Donated By You</h5>
+                            <a href="/Employee/ShowTotalCompleteTask" class="btn btn-primary">Total Completed Task</a>
+                        </div>
+                    </div>
+                </div><br />
+            </div>
+        </div>
+    </div>
+</center>
+
+<br />
+
+<div>
+    @Html.ActionLink("Logout", "Index", "Home", null, new { @class = "btn btn-danger" })
+</div>

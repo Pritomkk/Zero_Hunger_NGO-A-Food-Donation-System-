@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "RestruentDonarDash";
+}
+<div class="header">
+    @if (TempData["Message2"] != null)
+    {
+        <h4 class="alert alert-info">@TempData["Message2"]</h4>
+    }
+</div>
+
+
+<h2>Login as Donar @Session["id"]</h2>
+
+<div class="dashboard-container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <H4 class="card-text">Donate Food For Hurry People.</H4>
+                    <a href="/RestruentDonar/R_DonarCollectRequest" class="btn btn-primary">Donate Food</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5>View Donation Food </h5>
+                    <a href="/RestruentDonar/ViewDonationStatus" class="btn btn-primary">View </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+
+                    <h5> View the Distribution status.</h5>
+                    <a href="/RestruentDonar/ViewDistributionStatus" class="btn btn-primary">View Status</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div><br /><br />
+
+<div>
+    @Html.ActionLink("Logout", "Index", "Home", null, new { @class = "btn btn-danger" })
+</div>
+
+

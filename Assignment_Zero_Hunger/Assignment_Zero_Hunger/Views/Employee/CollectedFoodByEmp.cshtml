@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Assignment_Zero_Hunger.EF.CollectedFoodByEmp>
+
+@{
+    ViewBag.Title = "CollectedFoodByEmp";
+}
+
+<h2>CollectedFoodByEmp</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectedFoodEmp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectRequest_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectedFoodEmp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectRequest_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpId)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+
+
+<div>
+    @Html.ActionLink("Back", "EmployeeDash", null, new { @class = "btn btn-danger" })
+</div>

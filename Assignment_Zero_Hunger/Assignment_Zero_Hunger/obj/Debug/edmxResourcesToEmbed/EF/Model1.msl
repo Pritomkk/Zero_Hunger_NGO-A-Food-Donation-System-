@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MidprojectModelStoreContainer" CdmEntityContainer="MidprojectEntities4">
+    <EntitySetMapping Name="CollectedFoodByEmps">
+      <EntityTypeMapping TypeName="MidprojectModel.CollectedFoodByEmp">
+        <MappingFragment StoreEntitySet="CollectedFoodByEmp">
+          <ScalarProperty Name="CollectedFoodEmp" ColumnName="CollectedFoodEmp" />
+          <ScalarProperty Name="CollectRequest_Id" ColumnName="CollectRequest_Id" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectRequests">
+      <EntityTypeMapping TypeName="MidprojectModel.CollectRequest">
+        <MappingFragment StoreEntitySet="CollectRequest">
+          <ScalarProperty Name="CollectRequest_Id" ColumnName="CollectRequest_Id" />
+          <ScalarProperty Name="FoodDscription" ColumnName="FoodDscription" />
+          <ScalarProperty Name="FoodType" ColumnName="FoodType" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Expired_Time" ColumnName="Expired_Time" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="RestruentDonorId" ColumnName="RestruentDonorId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="MidprojectModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NGOId" ColumnName="NGOId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodDistributions">
+      <EntityTypeMapping TypeName="MidprojectModel.FoodDistribution">
+        <MappingFragment StoreEntitySet="FoodDistribution">
+          <ScalarProperty Name="Distribution_Id" ColumnName="Distribution_Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="CollectRequest_Id" ColumnName="CollectRequest_Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodDistributionByEmployees">
+      <EntityTypeMapping TypeName="MidprojectModel.FoodDistributionByEmployee">
+        <MappingFragment StoreEntitySet="FoodDistributionByEmployee">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Distribution_Id" ColumnName="Distribution_Id" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGOAdmins">
+      <EntityTypeMapping TypeName="MidprojectModel.NGOAdmin">
+        <MappingFragment StoreEntitySet="NGOAdmin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RestruentDonors">
+      <EntityTypeMapping TypeName="MidprojectModel.RestruentDonor">
+        <MappingFragment StoreEntitySet="RestruentDonor">
+          <ScalarProperty Name="RestruentDonorId" ColumnName="RestruentDonorId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

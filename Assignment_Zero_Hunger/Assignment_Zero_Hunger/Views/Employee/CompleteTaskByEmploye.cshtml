@@ -1,0 +1,35 @@
+﻿@model Assignment_Zero_Hunger.EF.FoodDistributionByEmployee
+
+@{
+    ViewBag.Title = "CompleteTaskByEmploye";
+}
+
+<h2>CompleteTaskByEmploye</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Distribution ID
+        </th>
+        <th>
+            Employee ID
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Distribution_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.EmpId)
+        </td>
+
+    </tr>
+</table>
+
+
+
+<div>
+    @Html.ActionLink("Back", "EmployeeDash", null, new { @class = "btn btn-danger" })
+</div>

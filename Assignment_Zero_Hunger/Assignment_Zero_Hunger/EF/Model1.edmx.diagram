@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c4d9a6f7d28b4abbb3a01cf5c499316a" Name="Diagram1">
+        <EntityTypeShape EntityType="MidprojectModel.CollectedFoodByEmp" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MidprojectModel.CollectRequest" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MidprojectModel.Employee" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MidprojectModel.FoodDistribution" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MidprojectModel.FoodDistributionByEmployee" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MidprojectModel.NGOAdmin" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MidprojectModel.RestruentDonor" Width="1.5" PointX="1.5" PointY="11.25" IsExpanded="true" />
+        <AssociationConnector Association="MidprojectModel.FK_CollectedFoodByEmp_CollectRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="MidprojectModel.FK_CollectedFoodByEmp_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="MidprojectModel.FK_CollectRequest_CollectRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="MidprojectModel.FK_FoodDistribution_CollectRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="MidprojectModel.FK_Employee_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="MidprojectModel.FK_FoodDistributionByEmployee_FoodDistributionByEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="MidprojectModel.FK_FoodDistributionByEmployee_FoodDistribution" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Assignment_Zero_Hunger.EF.FoodDistribution>
+
+@{
+    ViewBag.Title = "ViewDonateFood";
+}
+
+<h2>ViewDonateFood</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Distribution_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectRequest_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distribution_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectRequest_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @using (Html.BeginForm("CompleteTaskByEmploye", "Employee", FormMethod.Post))
+                {
+                    @Html.Hidden("Distributesid", item.Distribution_Id)
+                    <button type="submit" class="btn btn-primary">Complete Task</button>
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<div>
+    @Html.ActionLink("Back", "EmployeeDash", null, new { @class = "btn btn-danger" })
+</div>
+
